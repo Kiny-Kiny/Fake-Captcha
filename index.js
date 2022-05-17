@@ -1,4 +1,6 @@
-const request = require("request")
+const request = require("request").defaults({cookie: true})
+//const cookieJar = request.jar()
+//request = request.defaults({jar: cookieJar})
 const urls = ["https://fakecaptcha.com/",
               "https://fakecaptcha.com/generate.php",
               "https://fakecaptcha.com/result.php"]
@@ -23,8 +25,8 @@ async function main(codigo) {
     let _foto = await curl({method: "POST", url: urls[2], form: {words: words}})
     let foto = await spliter(_foto.body, 'src="data:image/jpg;base64,', '"')
     //------------------------------------------------//
+    return {status: 200, msg: foto}
   } catch {
       return {status: 400, msg: "Error generating captcha!"}
     }
-  return {status: 200, msg: foto}
 }
