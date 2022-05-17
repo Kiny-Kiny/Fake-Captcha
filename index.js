@@ -13,7 +13,7 @@ async function spliter(msg, start, end) {
   return msg_
 }
 
-async function main(token, codigo) {
+async function main(codigo) {
   try {
     let start = await curl({method: "GET", url: urls[0]})
     //-------------------------------------------------//
