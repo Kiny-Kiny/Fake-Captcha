@@ -1,6 +1,4 @@
-const request = require("request").defaults({cookie: true})
-//const cookieJar = request.jar()
-//request = request.defaults({jar: cookieJar})
+const request = require("request")
 const urls = ["https://fakecaptcha.com/",
               "https://fakecaptcha.com/generate.php",
               "https://fakecaptcha.com/result.php"]
